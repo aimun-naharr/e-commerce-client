@@ -6,8 +6,9 @@ const initialState = {
         cart: [],
 };
 
-export const cartSlice = createSlice({
-        name: "cart".initialState,
+ const cartSlice = createSlice({
+        name: "cart",
+        initialState,
         reducers: {
                 setItem: (state, action) => {
                         state.items = action.payload;
@@ -34,11 +35,11 @@ export const cartSlice = createSlice({
                                 return item;
                         });
                 },
-                setIsCartOpen: (state, action)=>{
+                setIsCartOpen: (state)=>{
                     state.isCartOpen= !state.isCartOpen
                 }
         },
 });
 
-export const { setItem, isCartOpen, increaseCount, decreaseCount, removeFromCart, addToCart } = cartSlice.actions;
+export const { setItem, isCartOpen, increaseCount, decreaseCount, removeFromCart, addToCart, setIsCartOpen } = cartSlice.actions;
 export default cartSlice.reducer;

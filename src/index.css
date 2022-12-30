@@ -10,4 +10,5 @@ body{
 }
 .app{
   margin: auto;
+  position: relative;
 }
