@@ -43,7 +43,7 @@ const CartModal = () => {
                                 position="fixed"
                                 right="0"
                                 top="0"
-                                width="max(400px, 30%)" //max-width 400px, if it goes beyond that then it'll become 30% of it's parent div
+                                width="max(350px, 30%)" //max-width 400px, if it goes beyond that then it'll become 30% of it's parent div
                                 height="100%"
                                 backgroundColor="white"
                         >
