@@ -7,6 +7,7 @@ import broke from "../../assets/carousel/brooke-cagle-aVT8VkmzML4-unsplash.jpeg"
 import single from "../../assets/carousel/larm-rmah-R1Ku62Z7zqE-unsplash.jpeg"; 
 import jacket from "../../assets/carousel/jc-gellidon-JM8TkWJ9UIY-unsplash.jpeg"; 
 import couple from "../../assets/carousel/toa-heftiba-dti56waifB4-unsplash.jpeg"; 
+import { shades } from "../../theme";
 
 const MainCarousal = () => {
         const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -14,10 +15,11 @@ const MainCarousal = () => {
 
         return (
                 <Carousel
+              
                        autoPlay={true}
                         showThumbs={false}
                         infiniteLoop={true}
-                        showArrows={true}
+                        showArrows={false}
                         showStatus={false}
                 >
                         {images.map((img, i) => (
@@ -30,7 +32,9 @@ const MainCarousal = () => {
                                        backgroundColor='rgba(0, 0, 0, 0.4)'
                                        top='56%'
                                        left='10%'
+                                       textAlign="left"
                                        >
+<Typography color={shades.secondary[400]} >New Item---</Typography>
 <Typography variant="h2">Summer sale </Typography>
                                        </Box>
                                 </div>

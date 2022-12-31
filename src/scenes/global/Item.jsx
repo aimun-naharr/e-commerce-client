@@ -1,6 +1,6 @@
 import React from "react";
 import { IconButton, Typography, Box, useTheme, Button } from "@mui/material";
-import AddIcon from "@mui/material/add";
+import AddIcon from "@mui/icons-material/add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const Item = ({ item, width }) => {
         return (
                 <Box width={width}>
                         <Box position="relative" onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)}>
-                                <img src={item.img} alt={item.name} width="300px" style={{ cursor: "pointer" }} height="400px" onClick={() => navigate(`/item/${item._id}`)} />
+                                <img src={item.image} alt={item.name} width="300px" style={{ cursor: "pointer" }} height="400px" onClick={() => navigate(`/item/${item._id}`)} />
                                 <Box position="absolute" bottom="10%" left="0" width="100%" padding="0 5%" display={isHovered ? "block" : "none"}>
                                         <Box display="flex" justifyContent="space-between">
                                                 {/* Amount */}
@@ -37,9 +37,9 @@ const Item = ({ item, width }) => {
                                 </Box>
                         </Box>
                         <Box mt='3px'>
-                                <Typography variant='subtitle2' color={neutral.dark}>{category}  </Typography>
-                                <Typography >{name}  </Typography>
-                                <Typography fontWeight='bold'>${price}  </Typography>
+                                <Typography variant='subtitle2' color={neutral.dark}>{item.category}  </Typography>
+                                <Typography >{item.name}  </Typography>
+                                <Typography fontWeight='bold'>${item.price}  </Typography>
                         </Box>
                 </Box>
         );
