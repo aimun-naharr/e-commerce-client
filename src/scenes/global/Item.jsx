@@ -1,20 +1,24 @@
 import React from "react";
 import { IconButton, Typography, Box, useTheme, Button } from "@mui/material";
-import AddIcon from "@mui/icons-material/add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { Add, Remove } from "@mui/icons-material";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../state/cartSlice";
+import { addToCart, removeFromCart } from "../../state/cartSlice";
 const Item = ({ item, width }) => {
         const [count, setCount] = useState(0);
-        const dispatch=useDispatch()
+        const dispatch = useDispatch();
         const [isHovered, setIsHovered] = useState(false);
         const {
                 palette: { neutral },
         } = useTheme();
         const navigate = useNavigate();
+
+        const handleAddToCart = (item) => {
+                dispatch(addToCart(item));
+        };
         return (
                 <Box width={width}>
                         <Box position="relative" onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)}>
@@ -23,23 +27,28 @@ const Item = ({ item, width }) => {
                                         <Box display="flex" justifyContent="space-between">
                                                 {/* Amount */}
                                                 <Box backgroundColor={shades.neutral[100]} display="flex" alignItems="center" borderRadius="3px">
-                                                        <IconButton onClick={()=>setCount(Math.max(count, -1, 1))}>
-                                                                <RemoveIcon />
+                                                        <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                                                                <Remove />
                                                         </IconButton>
                                                         <Typography color={shades.primary[300]}>{count}</Typography>
-                                                        <IconButton onClick={count +1}>
-                                                                <AddIcon />
+                                                        <IconButton onClick={() => setCount((prev) => prev + 1)}>
+                                                                <Add />
                                                         </IconButton>
                                                 </Box>
                                                 {/* Add to cart button */}
-                                                <Button sx={{backgroundColor: shades.primary[300], color: 'white'}} onClick={()=>dispatch(addToCart({item: {...item, count}}))}>Add to cart</Button>
+
+                                                <Button sx={{ backgroundColor: shades.primary[300], color: "white" }} onClick={() => handleAddToCart({item:{ ...item, count }})}>
+                                                        Add to cart
+                                                </Button>
                                         </Box>
                                 </Box>
                         </Box>
-                        <Box mt='3px'>
-                                <Typography variant='subtitle2' color={neutral.dark}>{item.category}  </Typography>
-                                <Typography >{item.name}  </Typography>
-                                <Typography fontWeight='bold'>${item.price}  </Typography>
+                        <Box mt="3px">
+                                <Typography variant="subtitle2" color={neutral.dark}>
+                                        {item.category}{" "}
+                                </Typography>
+                                <Typography>{item.name} </Typography>
+                                <Typography fontWeight="bold">${item.price}</Typography>
                         </Box>
                 </Box>
         );

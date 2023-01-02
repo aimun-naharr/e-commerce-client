@@ -6,15 +6,19 @@ const initialState = {
         cart: [],
 };
 
- const cartSlice = createSlice({
+const cartSlice = createSlice({
         name: "cart",
         initialState,
         reducers: {
                 setItem: (state, action) => {
                         state.items = action.payload;
                 },
+
                 addToCart: (state, action) => {
-                        state.cart = [...state.cart, action.payload];
+                        console.log(action.payload);
+                        // I'm getting the item object in this payload
+                          state.cart = [...state.cart, action.payload.item];
+                        
                 },
                 removeFromCart: (state, action) => {
                         state.cart = state.cart.filter((item) => item.id !== action.payload.id);
@@ -29,15 +33,15 @@ const initialState = {
                 },
                 decreaseCount: (state, action) => {
                         state.cart = state.cart.map((item) => {
-                                if (item._id === action.payload._id && item.count >1) {
+                                if (item._id === action.payload._id && item.count > 1) {
                                         item.count++;
                                 }
                                 return item;
                         });
                 },
-                setIsCartOpen: (state)=>{
-                    state.isCartOpen= !state.isCartOpen
-                }
+                setIsCartOpen: (state) => {
+                        state.isCartOpen = !state.isCartOpen;
+                },
         },
 });
 
