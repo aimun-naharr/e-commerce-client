@@ -3,7 +3,10 @@ import { Box, Divider, Button, IconButton, Typography } from "@mui/material";
 import { Close, Add, Remove } from "@mui/icons-material";
 import { shades } from "../../theme";
 import { FlexBox } from "./CartModal";
+import { decreaseCount, increaseCount, removeFromCart } from "../../state/cartSlice";
+import { useDispatch } from "react-redux";
 const CartItem = ({item}) => {
+	const dispatch=useDispatch()
 	return (
 		<Box>
 			<FlexBox p="15px 0">
