@@ -19,6 +19,19 @@ const Item = ({ item, width }) => {
         const handleAddToCart = (item) => {
                 dispatch(addToCart(item));
         };
+        const Amount=({count})=>{
+                return (
+                        <Box backgroundColor={shades.neutral[100]} display="flex" alignItems="center" borderRadius="3px">
+                        <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                                <Remove />
+                        </IconButton>
+                        <Typography color={shades.primary[300]}>{count}</Typography>
+                        <IconButton onClick={() => setCount((prev) => prev + 1)}>
+                                <Add />
+                        </IconButton>
+                </Box>
+                )
+        }
         return (
                 <Box width={width}>
                         <Box position="relative" onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)}>
@@ -26,15 +39,7 @@ const Item = ({ item, width }) => {
                                 <Box position="absolute" bottom="10%" left="0" width="100%" padding="0 5%" display={isHovered ? "block" : "none"}>
                                         <Box display="flex" justifyContent="space-between">
                                                 {/* Amount */}
-                                                <Box backgroundColor={shades.neutral[100]} display="flex" alignItems="center" borderRadius="3px">
-                                                        <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
-                                                                <Remove />
-                                                        </IconButton>
-                                                        <Typography color={shades.primary[300]}>{count}</Typography>
-                                                        <IconButton onClick={() => setCount((prev) => prev + 1)}>
-                                                                <Add />
-                                                        </IconButton>
-                                                </Box>
+                                                <Amount count={count}/>
                                                 {/* Add to cart button */}
 
                                                 <Button sx={{ backgroundColor: shades.primary[300], color: "white" }} onClick={() => handleAddToCart({item:{ ...item, count }})}>

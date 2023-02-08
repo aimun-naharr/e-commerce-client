@@ -20,7 +20,7 @@ const Navbar = () => {
 			{/* Inner box */}
 			<Box position="relative" display="flex" alignItems="center" justifyContent="justify-between" width="80%" margin="auto">
 				<Box color={shades.secondary[500]} sx={{ "&:hover": { cursor: "pointer" } }} onClick={() => navigate("/")}>
-					<Typography variant="h4"> E-commerce</Typography>
+					<Typography variant="h4" fontWeight={700}> TrendWear</Typography>
 				</Box>
 				<Box display="flex" justifyContent="space-between" columnGap={!isNonMobile ? "0" : "20px"} position="absolute" right="0" zIndex="2">
 					<IconButton>
