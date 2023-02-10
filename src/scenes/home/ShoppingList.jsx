@@ -13,7 +13,8 @@ const ShoppingList = () => {
         const topRatedItems = data?.filter((item) => item.category === "toprated");
         const newArrivals = data?.filter((item) => item.category === "newarrivals");
         const bestSellers = data?.filter((item) => item.category === "bestsellers");
-
+        
+        if(isLoading) return <p>Please wait....</p>
         return (
                 <Box width="80%" margin="80px auto">
                         <Typography variant="h3" textAlign="center">
