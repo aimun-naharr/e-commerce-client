@@ -12,4 +12,11 @@ A web-based e-commerce platform with a shopping cart feature
 + mobile responsive
 
 ## Demo
-![Alt text] ('../client/src/assets/videos/demo.mp4)
+
+
+https://user-images.githubusercontent.com/96931784/218238348-bc759e94-d209-4d93-ac92-85d46f283c8f.mp4
+
+
+
+
+
