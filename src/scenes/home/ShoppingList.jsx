@@ -3,6 +3,7 @@ import { Box, Typography, Tabs, Tab, useMediaQuery } from "@mui/material";
 import { useGetPoductQuery } from "../../state/productSlice";
 import { useState } from "react";
 import Item from "../global/Item";
+import ProgressBar from "../global/ProgressBar";
 const ShoppingList = () => {
         const [value, setValue] = useState("all");
         const handleChange = (event, newValue) => {
@@ -14,7 +15,7 @@ const ShoppingList = () => {
         const newArrivals = data?.filter((item) => item.category === "newarrivals");
         const bestSellers = data?.filter((item) => item.category === "bestsellers");
         
-        if(isLoading) return <p>Please wait....</p>
+        if(isLoading) return <ProgressBar/>
         return (
                 <Box width="80%" margin="80px auto">
                         <Typography variant="h3" textAlign="center">

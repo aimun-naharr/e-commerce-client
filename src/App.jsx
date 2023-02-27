@@ -10,6 +10,8 @@ import Checkout from "./scenes/checkout/Checkout";
 import Confirmation from "./scenes/checkout/Confirmation";
 import Navbar from "./scenes/global/Navbar";
 import CartModal from "./scenes/global/CartModal";
+import LoginScreen from "./scenes/auth/LoginScreen";
+import SignUpScreen from "./scenes/auth/SignUpScreen";
 
 function App() {
         const ScrollToTop = () => {
@@ -26,6 +28,8 @@ function App() {
                                 <ScrollToTop />
                                 <Routes>
                                         <Route path="/" element={<Home />} />
+                                        <Route path="/login" element={<LoginScreen />} />
+                                        <Route path="/sign-up" element={<SignUpScreen />} />
                                         <Route path="item/:id" element={<ItemDetail />} />
                                         <Route path="/checkout" element={<Checkout />} />
                                         <Route path="/checkout/success" element={<Confirmation />} />

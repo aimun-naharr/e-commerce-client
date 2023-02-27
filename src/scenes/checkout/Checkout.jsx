@@ -117,7 +117,7 @@ const Checkout = () => {
 									setFieldValue={setFieldValue}
 								/>
 							)}
-					<Box><Button variant='primary' type='submit' fullWidth sx={{backgroundColor: shades.primary[400], color: '#fff'}}>Submit</Button></Box>
+					<Box><Button variant='primary' type='submit' fullWidth sx={{backgroundColor: shades.primary[400], color: '#fff' ,"&:hover":{ backgroundColor: shades.primary[500]}}}>Submit</Button></Box>
 						</form>
 					)}
 				</Formik>

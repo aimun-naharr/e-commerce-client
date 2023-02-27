@@ -6,6 +6,7 @@ import { shades } from "../../theme";
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../state/cartSlice";
 import CartModal from "./CartModal";
+import { Link } from "react-router-dom";
 const Navbar = () => {
 	const isNonMobile = useMediaQuery("(min-width:600px)");
 	const dispatch = useDispatch();
@@ -44,9 +45,11 @@ const Navbar = () => {
 							<ShoppingBagOutlined />
 						</IconButton>
 					</Badge>
+					<Link to='login'>
 					<IconButton>
 						<PersonOutline />
 					</IconButton>
+					</Link>
 					<IconButton>
 						<MenuOutlined />
 					</IconButton>
