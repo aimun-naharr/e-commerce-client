@@ -1,12 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+
 import { PersonOutline, ShoppingBagOutlined, MenuOutlined, SearchOutlined } from "@mui/icons-material";
 import { shades } from "../../theme";
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../state/cartSlice";
 import CartModal from "./CartModal";
+
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
 	const isNonMobile = useMediaQuery("(min-width:600px)");
 	const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import { shades } from "../../theme";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../state/cartSlice";
 const Item = ({ item, width }) => {
-        const [count, setCount] = useState(0);
+        const [count, setCount] = useState(1);
         const dispatch = useDispatch();
         const [isHovered, setIsHovered] = useState(false);
         const {

@@ -10,7 +10,8 @@ const ShoppingList = () => {
                 setValue(newValue);
         };
         const isNonMobile = useMediaQuery("(min-width: 600px)");
-        const { data, isLoading } = useGetPoductQuery();
+        const { data, isLoading, error } = useGetPoductQuery();
+        console.log(error)
         const topRatedItems = data?.filter((item) => item.category === "toprated");
         const newArrivals = data?.filter((item) => item.category === "newarrivals");
         const bestSellers = data?.filter((item) => item.category === "bestsellers");

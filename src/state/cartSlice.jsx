@@ -16,12 +16,11 @@ const cartSlice = createSlice({
 
                 addToCart: (state, action) => {
                         const existingProduct = state.cart.find((product) => product._id === action.payload.item._id);
-                        console.log(state)
                         if (existingProduct) {
 				let newCart = state.cart.filter((product) => product._id !== existingProduct._id);
 				existingProduct.count = existingProduct.count + 1;
 				state.cart = [...newCart, existingProduct];
-			} else state.cart = [...state.cart, action.payload.item ];
+			} else state.cart = [...state.cart, action.payload.item];
                         
                 },
                 removeFromCart: (state, action) => {

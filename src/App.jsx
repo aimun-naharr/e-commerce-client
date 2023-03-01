@@ -12,6 +12,7 @@ import Navbar from "./scenes/global/Navbar";
 import CartModal from "./scenes/global/CartModal";
 import LoginScreen from "./scenes/auth/LoginScreen";
 import SignUpScreen from "./scenes/auth/SignUpScreen";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
         const ScrollToTop = () => {
@@ -31,7 +32,7 @@ function App() {
                                         <Route path="/login" element={<LoginScreen />} />
                                         <Route path="/sign-up" element={<SignUpScreen />} />
                                         <Route path="item/:id" element={<ItemDetail />} />
-                                        <Route path="/checkout" element={<Checkout />} />
+                                        <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>}/>
                                         <Route path="/checkout/success" element={<Confirmation />} />
                                 </Routes>
                         </BrowserRouter>

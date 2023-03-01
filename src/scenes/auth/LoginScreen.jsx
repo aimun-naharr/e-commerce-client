@@ -4,12 +4,14 @@ import TextFieldWrapper from "./TextFieldWrapper";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { shades } from "../../theme";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLoginUserMutation } from "../../state/userSlice";
+import { Navigate } from "react-router-dom";
+
 
 const LoginScreen = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
-
+  const [loginUser, {isError, isLoading, isSuccess, data, status}]=useLoginUserMutation()
 	
 	const initialStates = {
 		email: "",
@@ -20,9 +22,15 @@ const LoginScreen = () => {
 		email: Yup.string().email().required("Email is required"),
 		password: Yup.string().min(5, "Too Short").required("Password is required"),
 	});
-	const handleSubmit = (values) => {
-		console.log(values);
+	const handleSubmit = (values, {resetForm}) => {
+		loginUser(values)
+		resetForm()
 	};
+	if(isSuccess){
+		localStorage.setItem('token', JSON.stringify(data.token))
+		localStorage.setItem('user', JSON.stringify(data.user))
+		return<Navigate to="/" replace={true} />
+	}
 	return (
 		<Stack sx={{ m: "90px auto" }} width={isNonMobile? "40%": "90%"}>
 			<Stack>
@@ -38,7 +46,7 @@ const LoginScreen = () => {
 								fullWidth
 								sx={{ backgroundColor: shades.primary[400], color: "#fff", "&:hover": { backgroundColor: shades.primary[500] } }}
 							>
-								LOGIN
+								{isLoading? 'Please wait...': 'Login'}
 							</Button>
 						</Stack>
 					</Form>

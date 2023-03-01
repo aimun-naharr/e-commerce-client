@@ -13,6 +13,7 @@ const ItemDetail = () => {
 	const { id } = useParams();
 	const [value, setValue] = useState("description");
 	const [count, setCount] = useState(1);
+	console.log(count)
 	
 	const products= useGetPoductQuery();
 	const { data, error, isLoading } = useGetOnePoductQuery(id);

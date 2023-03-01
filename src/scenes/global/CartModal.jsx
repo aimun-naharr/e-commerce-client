@@ -18,7 +18,7 @@ const CartModal = () => {
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart.cart);
 	const totalPrice = cart.reduce((total, item) => {
-		return total + item.count * item.price;
+		return total + (item.count * item.price);
 	}, 0);
 
 	return (
@@ -50,7 +50,9 @@ const CartModal = () => {
 						</IconButton>
 					</FlexBox>
 					{/* cart items */}
-					<Box>
+					{
+						!cart.length ? <Box><Typography>Please add some products first</Typography></Box>:<>
+						<Box>
 						{cart.map((item) => (
 							<CartItem item={item} key={item._id} />
 						))}
@@ -70,7 +72,8 @@ const CartModal = () => {
 						>
 							Checkout
 						</Button>
-					</Box>
+					</Box></>
+					}
 				</Box>
 			</Box>
 		</Box>
