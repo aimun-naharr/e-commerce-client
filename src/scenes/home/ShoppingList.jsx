@@ -1,20 +1,28 @@
 import React from "react";
 import { Box, Typography, Tabs, Tab, useMediaQuery } from "@mui/material";
 import { useGetPoductQuery } from "../../state/productSlice";
+import { Pagination, PaginationItem } from "@mui/material";
 import { useState } from "react";
 import Item from "../global/Item";
 import ProgressBar from "../global/ProgressBar";
+import PaginateBar from "../global/PaginateBar";
 const ShoppingList = () => {
         const [value, setValue] = useState("all");
         const handleChange = (event, newValue) => {
                 setValue(newValue);
         };
         const isNonMobile = useMediaQuery("(min-width: 600px)");
-        const { data, isLoading, error } = useGetPoductQuery();
-        console.log(error)
-        const topRatedItems = data?.filter((item) => item.category === "toprated");
-        const newArrivals = data?.filter((item) => item.category === "newarrivals");
-        const bestSellers = data?.filter((item) => item.category === "bestsellers");
+        const [currentPage, setCurrentPage] = useState(0);
+    const limit=5;
+    const startIndex=currentPage * 5
+        const { data, isLoading, error } = useGetPoductQuery({currentPage, startIndex, limit});
+        const handleChangePage = ( event, value) => {
+		setCurrentPage(value-1);
+	};
+    
+        const topRatedItems = data?.products.filter((item) => item.category === "toprated");
+        const newArrivals = data?.products.filter((item) => item.category === "newarrivals");
+        const bestSellers = data?.products.filter((item) => item.category === "bestsellers");
         
         if(isLoading) return <ProgressBar/>
         return (
@@ -50,7 +58,7 @@ const ShoppingList = () => {
                         columnGap='20px'
                         >
                                     {
-                                    value==='all' && data?.map((item)=><Item item={item} key={item._id}></Item>)
+                                    value==='all' && data?.products.map((item)=><Item item={item} key={item._id}></Item>)
                         }
                                     {
                                     value==='newarrivals' && newArrivals?.map((item)=><Item item={item} key={item._id}></Item>)
@@ -62,6 +70,7 @@ const ShoppingList = () => {
                                     value==='toprated' && topRatedItems?.map((item)=><Item item={item} key={item._id}></Item>)
                         }
                         </Box>
+                       <Box sx={{width: '100%', display: 'flex', justifyContent: 'center'}}><Pagination onChange={handleChangePage} count={data?.NumberofPages} renderItem={(item) => <PaginationItem {...item} size={"large"} />} /></Box>
                 </Box>
         );
 };

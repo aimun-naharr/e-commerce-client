@@ -11,8 +11,8 @@ const productApi = apiSlice.injectEndpoints({
                         }),
                 }),
                 getPoduct: builder.query({
-                        query: ()=>({
-                                url:  'products/getAll'
+                        query: ({currentPage, startIndex, limit})=>({
+                                url:  `products/getAll?page=${currentPage}&startIndex=${startIndex}&limit=${limit}`
                         })
                 }),
                 getOnePoduct: builder.query({
