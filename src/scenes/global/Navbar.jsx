@@ -1,32 +1,44 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Badge, Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+import { Badge, Box,   IconButton,Typography, useMediaQuery } from "@mui/material";
 
 import { PersonOutline, ShoppingBagOutlined, MenuOutlined, SearchOutlined } from "@mui/icons-material";
 import { shades } from "../../theme";
+import {  useTheme } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../state/cartSlice";
 import CartModal from "./CartModal";
 
 import { Link } from "react-router-dom";
+import { AppBarContainer, DrawerHeader } from "./persistantDrawer";
+import NavbarItems from "./NavbarItems";
 
 const Navbar = () => {
 	const isNonMobile = useMediaQuery("(min-width:600px)");
+	const [open, setOpen] = React.useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const cart = useSelector((state) => state.cart.cart);
-
+const user=useSelector(state=>state.auth.userInfo)
+console.log(user)
 	const isCartOpen = useSelector((state) => state.cart.isCartOpen);
-
+	const handleDrawerOpen = () => {
+		setOpen(true);
+	};
+	
+	
 	return (
 		// Outer Box
 		<Box display="flex" alignItems="center" width="100%" height="60px" position="fixed" top="0" left="0" zIndex="1">
 			{/* Inner box */}
-			<Box position="relative" display="flex" alignItems="center" justifyContent="justify-between" width="80%" margin="auto">
+			<Box position="relative" display="flex" alignItems="center" justifyContent="justify-between" width={isNonMobile? '80%': '90%'} margin="auto" >
 				<Box color={shades.secondary[500]} sx={{ "&:hover": { cursor: "pointer" } }} onClick={() => navigate("/")}>
-					<Typography variant="h4" fontWeight={700}> TrendWear</Typography>
+					<Typography variant="h4" fontWeight={700}>
+						{" "}
+						TrendWear
+					</Typography>
 				</Box>
-				<Box display="flex" justifyContent="space-between" columnGap={!isNonMobile ? "0" : "20px"} position="absolute" right="0" zIndex="2">
+				<Box display="flex" justifyContent="center" columnGap={!isNonMobile ? "0" : "30px"} position='fixed' right="0" zIndex="0"  sx={{width: isNonMobile? '200': 0}}>
 					<IconButton>
 						<SearchOutlined />
 					</IconButton>
@@ -48,14 +60,17 @@ const Navbar = () => {
 							<ShoppingBagOutlined />
 						</IconButton>
 					</Badge>
-					<Link to='login'>
-					<IconButton>
-						<PersonOutline />
-					</IconButton>
+					<Link to="login">
+						<IconButton>
+							<PersonOutline />
+						</IconButton>
 					</Link>
-					<IconButton>
+					
+					{user && <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen}  sx={{  ...(open && { display: "none" }) }}>
 						<MenuOutlined />
-					</IconButton>
+					</IconButton>}
+					
+					<NavbarItems open={open} setOpen={setOpen}/>
 				</Box>
 			</Box>
 			{isCartOpen && <CartModal />}

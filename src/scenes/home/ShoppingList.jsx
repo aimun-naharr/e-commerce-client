@@ -5,7 +5,6 @@ import { Pagination, PaginationItem } from "@mui/material";
 import { useState } from "react";
 import Item from "../global/Item";
 import ProgressBar from "../global/ProgressBar";
-import PaginateBar from "../global/PaginateBar";
 const ShoppingList = () => {
         const [value, setValue] = useState("all");
         const handleChange = (event, newValue) => {
