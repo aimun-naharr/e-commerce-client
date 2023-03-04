@@ -20,7 +20,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 	const cart = useSelector((state) => state.cart.cart);
 const user=useSelector(state=>state.auth.userInfo)
-console.log(user)
+
 	const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 	const handleDrawerOpen = () => {
 		setOpen(true);
