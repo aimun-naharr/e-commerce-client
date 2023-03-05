@@ -12,7 +12,6 @@ specifiers:
   formik: ^2.2.9
   react: ^18.2.0
   react-dom: ^18.2.0
-  react-file-base64: ^1.0.3
   react-redux: ^8.0.5
   react-responsive-carousel: ^3.2.23
   react-router-dom: '6'
@@ -28,7 +27,6 @@ dependencies:
   formik: 2.2.9_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-file-base64: 1.0.3_react@18.2.0
   react-redux: 8.0.5_ie75ejlwqy5zh3tldgt7pftwcu
   react-responsive-carousel: 3.2.23
   react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
@@ -1272,14 +1270,6 @@ packages:
 
   /react-fast-compare/2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
-    dev: false
-
-  /react-file-base64/1.0.3_react@18.2.0:
-    resolution: {integrity: sha512-itGMFH6IkJUZF2p0YXQnUBqzUHFaMYcs+ssD9e4j1XJGHRibGe8kiLr6y46oAIw1JknX/bJUUogDJOk/o91TMg==}
-    peerDependencies:
-      react: ^15.0.2
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
