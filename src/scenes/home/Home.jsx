@@ -7,6 +7,7 @@ const Home = () => {
           <div>
                <MainCarousal/>
                <ShoppingList/>
+               {/* <Footer/> */}
           </div>
      );
 };

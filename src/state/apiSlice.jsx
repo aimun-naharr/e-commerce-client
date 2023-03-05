@@ -3,7 +3,7 @@ import { createApi , fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 const apiSlice=createApi({
      reducerPath: 'api',
-     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api/' ,
+     baseQuery: fetchBaseQuery({ baseUrl: 'https://backend-trendwear-server.vercel.app/api/' ,
    
      }),
      endpoints: (builder)=>({})
@@ -11,9 +11,4 @@ const apiSlice=createApi({
 
 export default apiSlice
 
-  // prepareHeaders: (headers, { getState }) => {
-     //      // Add your custom headers here
-     //      headers.set('Authorization', `Bearer ${getState().auth.token}`);
-    
-     //      return headers;
-     //    }
+ 

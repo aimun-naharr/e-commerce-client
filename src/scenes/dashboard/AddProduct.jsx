@@ -47,9 +47,9 @@ const AddProduct = () => {
 					</Stack>
 					<Stack flexDirection={isNonMobile ? "row" : "column"} gap={2}>
 						<TextField select value={category} label="Categories" onChange={handleChange} fullWidth required>
-							<MenuItem value={"newArrivals"}>New Arrivals</MenuItem>
-							<MenuItem value={"topRated"}>Top Rated</MenuItem>
-							<MenuItem value={"bestSellers"}>Best Sellers</MenuItem>
+							<MenuItem value={"newarrivals"}>New Arrivals</MenuItem>
+							<MenuItem value={"toprated"}>Top Rated</MenuItem>
+							<MenuItem value={"bestsellers"}>Best Sellers</MenuItem>
 						</TextField>
 						<TextField type="text" required label="Price" fullWidth onChange={(e) => setPrice(e.target.value)} />
 					</Stack>
