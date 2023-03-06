@@ -2,7 +2,6 @@ import { Box, Button, IconButton, InputLabel, MenuItem, Select, Stack, TextField
 import React from "react";
 import ImageIcon from "@mui/icons-material/Image";
 import { shades } from "../../theme";
-import Filebase from "react-file-base64";
 import { usePostProductMutation } from "../../state/productSlice";
 
 const AddProduct = () => {
