@@ -17,10 +17,11 @@ A web-based e-commerce platform with a shopping cart feature
 + only admin can add products and see all the users
 + mobile responsive
 
-## Demo
+## Installation 
+After download or clone run `yarn` to install all the dependancies.
 
+🙏 If you find this repo interesting then don't forget to give it a star ❇️ to this repository. :)
 
-https://user-images.githubusercontent.com/96931784/218238348-bc759e94-d209-4d93-ac92-85d46f283c8f.mp4
 
 
 
