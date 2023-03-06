@@ -12,6 +12,9 @@ A web-based e-commerce platform with a shopping cart feature
 + Checkout page with form validation using the Formik library
 + Styled components used for visual design
 + User inputs are validated for accuracy and completeness before form submission
++ Pagination
++ admin role
++ only admin can add products and see all the users
 + mobile responsive
 
 ## Demo
