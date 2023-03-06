@@ -18,7 +18,7 @@ A web-based e-commerce platform with a shopping cart feature
 + mobile responsive
 
 ## Installation 
-After download or clone run `yarn` to install all the dependancies.
+After download or clone run `pnpm install` to install all the dependancies.
 
 🙏 If you find this repo interesting then don't forget to give it a star ❇️ to this repository. :)
 
